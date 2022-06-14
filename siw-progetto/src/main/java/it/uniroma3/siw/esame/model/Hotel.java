@@ -1,7 +1,7 @@
 package it.uniroma3.siw.esame.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Buffet {
+public class Hotel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,13 +26,30 @@ public class Buffet {
 	@NotBlank
 	private String descrizione;
 	
+	@NotBlank
+	private Integer stelle;
+	
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
-    private Set<Piatto> piatti;
+    private List<Stanza> stanze;
 	
 	@ManyToOne
-    private Chef chef;
-
+    private Citta citta;
 	
+	public Integer getStelle() {
+		return stelle;
+	}
+
+	public void setStelle(Integer stelle) {
+		this.stelle = stelle;
+	}
+
+	public Citta getCitta() {
+		return citta;
+	}
+
+	public void setCitta(Citta citta) {
+		this.citta = citta;
+	}
 	
 	public Long getId() {
 		return id;
@@ -58,34 +75,26 @@ public class Buffet {
 		this.descrizione = descrizione;
 	}
 
-	public Set<Piatto> getPiatti() {
-		return piatti;
+	public List<Stanza> getStanze() {
+		return stanze;
 	}
 
-	public void setPiatti(Set<Piatto> piatti) {
-		this.piatti = piatti;
+	public void setStanze(List<Stanza> stanze) {
+		this.stanze = stanze;
 	}
 
-	public Chef getChef() {
-		return chef;
-	}
-
-	public void setChef(Chef chef) {
-		this.chef = chef;
-	}
-
-	public void addPiatto(Piatto piatto) {
-		if(this.piatti == null) {
-			this.piatti = new HashSet<Piatto>();
+	public void addStanza(Stanza stanza) {
+		if(this.stanze == null) {
+			this.stanze = new ArrayList<Stanza>();
 		}
-		this.piatti.add(piatto);
+		this.stanze.add(stanza);
 	}
 	
-	public void removePiatto(Piatto piatto) {
-		this.piatti.remove(piatto);
+	public void removeStanza(Stanza stanza) {
+		this.stanze.remove(stanza);
 	}
 	
-	public void removeChef() {
-		this.chef = null;
+	public void removeCitta() {
+		this.citta = null;
 	}
 }

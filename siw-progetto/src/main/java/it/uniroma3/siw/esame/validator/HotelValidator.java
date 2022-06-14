@@ -5,25 +5,27 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import it.uniroma3.siw.esame.model.Ingrediente;
-import it.uniroma3.siw.esame.service.IngredienteService;
+import it.uniroma3.siw.esame.model.Hotel;
+import it.uniroma3.siw.esame.service.HotelService;
+
+
 
 @Component
-public class IngredienteValidator implements Validator{
+public class HotelValidator implements Validator{
 	
 	@Autowired
-	private IngredienteService ingredienteService;
+	private HotelService hotelService;
 	
 	@Override
 	public void validate(Object o, Errors errors) {
-		if(this.ingredienteService.alreadyExists((Ingrediente)o)) {
-			//errors.reject("ingrediente.duplicato");
+		if(this.hotelService.alreadyExists((Hotel)o)) {
+			errors.reject("hotel.duplicato");
 		}
 	}
 	
 	@Override
 	public boolean supports(Class<?> aClass) {
-		return Ingrediente.class.equals(aClass);
+		return Hotel.class.equals(aClass);
 	}
 
 }

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Ingrediente {
+public class Servizio {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,9 +18,6 @@ public class Ingrediente {
 
 	@NotBlank
 	private String descrizione;
-	
-	@NotBlank
-	private String origine;
 	
 	public Long getId() {
 		return id;
@@ -44,14 +41,6 @@ public class Ingrediente {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
-	}
-	
-	public String getOrigine() {
-		return origine;
-	}
-
-	public void setOrigine(String origine) {
-		this.origine = origine;
 	}
 	
 }

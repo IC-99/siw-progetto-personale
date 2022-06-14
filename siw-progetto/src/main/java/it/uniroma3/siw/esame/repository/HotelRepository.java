@@ -2,9 +2,9 @@ package it.uniroma3.siw.esame.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import it.uniroma3.siw.esame.model.Buffet;
+import it.uniroma3.siw.esame.model.Hotel;
 
-public interface BuffetRepository extends CrudRepository<Buffet, Long> {
+public interface HotelRepository extends CrudRepository<Hotel, Long> {
 
 	public boolean existsByNomeAndDescrizione(String nome, String descrizione);
 }

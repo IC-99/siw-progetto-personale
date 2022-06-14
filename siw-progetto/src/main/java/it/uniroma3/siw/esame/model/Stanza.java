@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Piatto {
+public class Stanza {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,10 +23,16 @@ public class Piatto {
 	private String nome;
 	
 	@NotBlank
+	private Integer numero;
+	
+	@NotBlank
+	private Float prezzoNotte;
+	
+	@NotBlank
 	private String descrizione;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
-    private List<Ingrediente> ingredienti;
+    private List<Servizio> servizi;
 	
 	public Long getId() {
 		return id;
@@ -43,6 +49,22 @@ public class Piatto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
+	public Integer getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
+
+	public Float getPrezzoNotte() {
+		return prezzoNotte;
+	}
+
+	public void setPrezzoNotte(Float prezzoNotte) {
+		this.prezzoNotte = prezzoNotte;
+	}
 
 	public String getDescrizione() {
 		return descrizione;
@@ -52,22 +74,22 @@ public class Piatto {
 		this.descrizione = descrizione;
 	}
 
-	public List<Ingrediente> getIngredienti() {
-		return ingredienti;
+	public List<Servizio> getServizi() {
+		return servizi;
 	}
 
-	public void setIngredienti(List<Ingrediente> ingredienti) {
-		this.ingredienti = ingredienti;
+	public void setServizi(List<Servizio> servizi) {
+		this.servizi = servizi;
 	}
 	
-	public void addIngrediente(Ingrediente ingrediente) {
-		if(this.ingredienti == null) {
-			this.ingredienti = new ArrayList<Ingrediente>();
+	public void addServizio(Servizio servizio) {
+		if(this.servizi == null) {
+			this.servizi = new ArrayList<Servizio>();
 		}
-		this.ingredienti.add(ingrediente);
+		this.servizi.add(servizio);
 	}
 	
-	public void removeIngrediente(Ingrediente ingrediente) {
-		this.ingredienti.remove(ingrediente);
+	public void removeServizio(Servizio servizio) {
+		this.servizi.remove(servizio);
 	}
 }

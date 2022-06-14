@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Chef {
+public class Citta {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,13 +21,10 @@ public class Chef {
 	private String nome;
 	
 	@NotBlank
-	private String cognome;
+	private String regione;
 	
-	@NotBlank
-	private String nazionalita;
-	
-	@OneToMany(mappedBy = "chef", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private List<Buffet> buffets;
+	@OneToMany(mappedBy = "citta", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	private List<Hotel> hotels;
 
 	public Long getId() {
 		return id;
@@ -45,31 +42,23 @@ public class Chef {
 		this.nome = nome;
 	}
 
-	public String getCognome() {
-		return cognome;
+	public String getRegione() {
+		return regione;
 	}
 
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
+	public void setRegione(String regione) {
+		this.regione = regione;
 	}
 
-	public String getNazionalita() {
-		return nazionalita;
+	public List<Hotel> getHotels() {
+		return hotels;
 	}
 
-	public void setNazionalita(String nazionalita) {
-		this.nazionalita = nazionalita;
-	}
-
-	public List<Buffet> getBuffets() {
-		return buffets;
-	}
-
-	public void setBuffets(List<Buffet> buffets) {
-		this.buffets = buffets;
+	public void setHotels(List<Hotel> hotels) {
+		this.hotels = hotels;
 	}
 	
-	public void addBuffet(Buffet buffet) {
-		this.buffets.add(buffet);
+	public void addHotel(Hotel hotel) {
+		this.hotels.add(hotel);
 	}
 }
