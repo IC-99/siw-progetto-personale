@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Pannello Di Controllo')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione_home"></header>
+
+	<div id="home_admin">
+
+        <div>
+            <h2 style="text-align: center;">Operazioni sugli chef</h2>
+			<div class="box">
+                <a th:href="@{/admin/chefForm}">
+                    <button class="btn btn-home" type="button">Inserisci Chef</button>
+                </a>    
+            </div>
+            <div class="box">
+                <a th:href="@{/admin/chefs}">
+                    <button class="btn btn-home" type="button">Visualizza Chef</button>
+                </a>
+            </div>
+        </div>
+        <div>
+            <h2 style="text-align: center;">Operazioni sui buffet</h2>
+			<div class="box">
+				<a th:href="@{/admin/buffetForm}">
+					<button class="btn btn-home" type="button">Inserisci Buffet</button>
+				</a>
+			</div>
+            <div class="box">
+                <a th:href="@{/admin/buffets}">
+                    <button class="btn btn-home" type="button">Visualizza Buffet</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="box">
+        <a th:href="@{/admin/creaOggettiTest}">
+            <button class="btn btn-home" type="button">Crea oggetti di test</button>
+		</a>
+	</div>
+    
+</body>
+</html>

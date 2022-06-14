@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Elenco Chef')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+	<div>
+		<h1>I nostri chef</h1>
+		<div class="flexlist">
+			<div th:each="chef : ${chefs}">
+                <div style="margin: 0px">
+				    <h2 class="flextitle" th:text="${chef.nome} + ' ' + ${chef.cognome}">nome cognome</h2>
+                </div>
+                <div style="margin: 0px">
+                    <span style="font-weight:bold; color:black">Nazionalit&agrave;: </span>
+				    <span th:text="${chef.nazionalita}">nazionalit&agrave;</span>
+                </div>
+                <div>
+                    <span class="box">
+				        <a href="chef.html" th:href="@{'/admin/chef' + '/' + ${chef.id}}" style="text-decoration:none">
+                            <button class="btn btn-flex" type="button">Dettagli</button>
+                        </a>
+                    </span>
+                    <span class="box">
+				        <a href="chef.html" th:href="@{'/admin/toDeleteChef' + '/' + ${chef.id}}" style="text-decoration:none">
+                            <button class="btn btn-flex" type="button">Cancella</button>
+                        </a>
+                    </span>
+                </div>
+			</div>  
+		</div>
+	</div>
+	
+	<footer th:replace="fragments/base.html :: fondo(home='/home')"></footer>
+
+</body>
+</html>

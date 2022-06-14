@@ -1,0 +1,196 @@
+html {
+    background: #e6e9e9;
+    background-image: linear-gradient(270deg, rgb(230, 233, 233) 0%, rgb(216, 221, 221) 100%);
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: cornsilk;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
+    color: #545454;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 1em 2em 4em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: black;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+div[class=campoForm] {
+  padding: 10px;
+}
+
+.errore{
+    background-color: rgb(255,0,0,0.4);
+}
+
+
+.intestazione{
+    background-color: rgba(255,255,255,0.5);
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 5%
+}
+
+.intestazione h1{
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.intestazione div{
+    display: flex;
+    flex-flow: column;
+    flex-basis: 50%;
+}
+
+.buffetdalmondo{
+    font-family: fantasy;
+    font-size: 400%;
+    width: 33%;
+}
+#home_admin{
+    display: flex;
+    flex-flow: row;
+    margin-bottom:5%;
+}
+
+#home_admin div{
+    display: flex;
+    flex-flow: column;
+    flex-basis: 50%;
+    text-align: center;
+}
+
+textarea {
+    resize: none;
+}
+
+.flexlist {
+  display: flex;
+  flex-flow: column;
+}
+.flexlist div {
+  flex-basis: 50%;
+  text-align: center;
+  background: orange;
+  margin: 5px
+}
+
+.flextitle{
+    background-color: rgba(255,255,255,0.5);
+    margin-top: 0px;
+}
+
+button{
+    border: 0px;
+}
+
+.box{
+    text-align: center;
+    padding: 5px
+}
+
+.btn-home {
+  
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: red;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.btn-home::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.3s;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: darkred;
+}
+.btn-home:hover {
+  letter-spacing: 1px;
+}
+.btn-home:hover::before {
+  opacity: 1; 
+  transform: scale(1, 1); 
+}
+.btn-home::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(0,0,0,0.05);
+}
+.btn-home:hover::after {
+  opacity: 0; 
+  transform: scale(0.1, 1);
+}
+
+.btn-flex {
+  
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: rgba(255,255,255,0.7);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.btn-flex::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.3s;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: darkorange;
+}
+.btn-flex:hover {
+  letter-spacing: 1px;
+}
+.btn-flex:hover::before {
+  opacity: 1; 
+  transform: scale(1, 1); 
+}
+.btn-flex::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(0,0,0,0.05);
+}
+.btn-flex:hover::after {
+  opacity: 0; 
+  transform: scale(0.1, 1);
+}

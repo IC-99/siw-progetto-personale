@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Dettagli Buffet')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+	<div>
+		<h1 th:text="${buffet.nome}">Nome</h1>
+        <div>
+			<span style="font-weight:bold; color:black">Chef: </span>
+			<span th:if="${buffet.chef != null}">
+				<span th:text="${buffet.chef.nome}">nome</span>
+				<span th:text="${buffet.chef.cognome}">cognome</span>
+			</span>
+			<span th:if="${buffet.chef == null}">
+				<span style="color:red">da impostare</span>
+			</span>
+		</div>
+   		<div>
+			<span style="font-weight:bold; color:black">Descrizione: </span>
+			<span th:text="${buffet.descrizione}">descrizione</span>
+		</div>
+        <h2>Portate: </h2>
+		<div class="flexlist">
+			<div th:each="piatto : ${buffet.piatti}">
+                <div style="margin: 0px">
+				    <h2 class="flextitle" th:text="${piatto.nome}">nome</h2>
+                </div>
+                <div style="margin: 0px">
+				    <p th:text="${piatto.descrizione}">descrizione</p>
+                </div>
+                <div>
+                    <span class="box">
+				        <a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}" style="text-decoration:none">
+                            <button class="btn btn-flex" type="button">Dettagli</button>
+                        </a>
+                    </span>
+                </div>
+			</div>  
+		</div>
+	</div>
+    
+	<footer th:replace="fragments/base.html :: fondo(home='/home')"></footer>
+	
+</body>
+</html>

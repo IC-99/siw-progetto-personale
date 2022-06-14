@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Conferma Rimozione Piatto')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+	<div>
+		<h2>Conferma Rimozione Piatto:</h2>
+		<div>
+			<span th:text="${piatto.nome}">nome</span>
+			<span th:text="${piatto.descrizione}">descrizione</span>
+		</div>
+		<div class="box">
+			<a href="piatto.html" th:href="@{'/admin/buffet' + '/' + ${buffet.id} + '/deletePiatto' + '/' + ${piatto.id}}">
+				<button class="btn btn-home" type="button">Conferma</button>
+			</a>
+		</div>
+	</div>
+
+	<footer th:replace="fragments/base.html :: fondo(home='/home')"></footer>
+	
+</body>
+</html>
