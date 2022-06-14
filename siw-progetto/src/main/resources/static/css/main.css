@@ -5,9 +5,9 @@ html {
 }
 
 body {
-    background-color: cornsilk;
+    background-color: #7fbbdc;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
-    color: #545454;
+    color: rgba(20, 20, 20, 1);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -81,7 +81,7 @@ textarea {
 .flexlist div {
   flex-basis: 50%;
   text-align: center;
-  background: orange;
+  background-color: #a5c3d3;
   margin: 5px
 }
 
@@ -107,7 +107,7 @@ button{
   color: white;
   font-weight: bold;
   font-size: 18px;
-  background-color: red;
+  background-color: #113e68;
   transition: all 0.3s;
   position: relative;
 }
@@ -122,7 +122,7 @@ button{
   transition: all 0.3s;
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  border-bottom-color: darkred;
+  border-bottom-color: #a5c3d3;
 }
 .btn-home:hover {
   letter-spacing: 1px;
@@ -140,7 +140,7 @@ button{
   height: 100%;
   z-index: 1;
   transition: all 0.3s;
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(255,255,255,0.1);
 }
 .btn-home:hover::after {
   opacity: 0; 
@@ -170,7 +170,7 @@ button{
   transition: all 0.3s;
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  border-bottom-color: darkorange;
+  border-bottom-color: #113e68;
 }
 .btn-flex:hover {
   letter-spacing: 1px;
