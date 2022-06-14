@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Inserisci Citt&agrave;')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+    <h1>Inserisci Citt&agrave;</h1>
+    
+    <div th:if="${!fromHotel}">
+    	<form th:action="@{/admin/citta}" method="post" th:object = "${citta}">
+			<div class="errore" th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errori generici</p>
+			</div>
+		
+			<div class="campoForm">
+				<div><b>Nome</b></div> 
+	            <input type="text" th:field="*{nome}"/>
+				<span class="errore" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">errore nome</span>
+			</div>	
+			<div class="campoForm">
+				<div><b>Regione</b></div> 
+            	<input type="text" th:field="*{regione}"/>
+				<span class="errore" th:if="${#fields.hasErrors('regione')}" th:errors="*{regione}">errore regione</span>
+			</div>
+			<div class="box">
+            	<button class="btn btn-home" type="submit">Conferma</button>
+        	</div>
+		</form>
+	</div>
+    
+    <div th:if="${fromHotel}">
+    <form th:action="@{'/admin/hotel' + '/' + ${hotel.id} + '/citta'}" method="post" th:object = "${citta}">
+			<div class="errore" th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errori generici</p>
+			</div>
+		
+			<div class="campoForm">
+				<div><b>Nome</b></div> 
+	            <input type="text" th:field="*{nome}"/>
+				<span class="errore" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">errore nome</span>
+			</div>	
+			<div class="campoForm">
+				<div><b>Regione</b></div> 
+            	<input type="text" th:field="*{regione}"/>
+				<span class="errore" th:if="${#fields.hasErrors('regione')}" th:errors="*{regione}">errore regione</span>
+			</div>
+			<div class="box">
+            	<button class="btn btn-home" type="submit">Conferma</button>
+        	</div>
+		</form>
+	</div>
+
+	<footer th:replace="fragments/base.html :: fondo(home='/home')"></footer>        
+
+</body>
+</html>

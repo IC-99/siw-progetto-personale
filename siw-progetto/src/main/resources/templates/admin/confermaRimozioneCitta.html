@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Conferma Rimozione Citt&agrave;')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+	<div>
+		<h2>Conferma Rimozione Citt&agrave;:</h2>
+		<div>
+			<span th:text="${citta.nome}">nome</span>
+			<span th:text="${citta.regione}">regione</span>
+		</div>
+		<div class="box">
+			<a href="citta.html" th:href="@{'/admin/deleteCitta' + '/' + ${citta.id}}">
+				<button class="btn btn-home" type="button">Conferma</button>
+			</a>
+		</div>
+	</div>
+
+	<footer th:replace="fragments/base.html :: fondo(home='/home')"></footer>
+	
+</body>
+</html>
