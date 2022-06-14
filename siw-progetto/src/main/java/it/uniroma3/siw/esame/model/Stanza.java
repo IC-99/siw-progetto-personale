@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Stanza {
@@ -22,10 +23,10 @@ public class Stanza {
 	@NotBlank
 	private String nome;
 	
-	@NotBlank
+	@NotNull
 	private Integer numero;
 	
-	@NotBlank
+	@NotNull
 	private Float prezzoNotte;
 	
 	@NotBlank

@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/base.html :: headerfiles(title='Conferma Rimozione Chef')"></head>
+<head th:replace="fragments/base.html :: headerfiles(title='Conferma Rimozione Hotel')"></head>
 
 <body>
 
 	<header th:replace="fragments/base.html :: intestazione"></header>
 
 	<div>
-		<h2>Conferma Rimozione Chef:</h2>
+		<h2>Conferma Rimozione Hotel:</h2>
 		<div>
-			<span th:text="${chef.nome}">nome</span>
-			<span th:text="${chef.cognome}">cognome</span>
-			<span th:text="${chef.nazionalita}">nazionalità</span>
+			<span th:text="${hotel.nome}">nome</span>
+			<span th:text="${hotel.descrizione}">descrizione</span>
 		</div>
 		<div class="box">
-			<a href="chef.html" th:href="@{'/admin/deleteChef' + '/' + ${chef.id}}">
+			<a href="hotel.html" th:href="@{'/admin/deleteHotel' + '/' + ${hotel.id}}">
 				<button class="btn btn-home" type="button">Conferma</button>
 			</a>
 		</div>

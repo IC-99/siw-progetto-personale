@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Hotel {
@@ -26,7 +27,7 @@ public class Hotel {
 	@NotBlank
 	private String descrizione;
 	
-	@NotBlank
+	@NotNull
 	private Integer stelle;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})

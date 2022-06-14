@@ -36,7 +36,7 @@ public class StanzaController {
 	
 	//ADMIN
 
-	//aggiunge un stanza a un hotel
+	//aggiunge una stanza a un hotel
 	@PostMapping("/admin/hotel/{hotel_id}/stanza")
 	public String addStanza(@PathVariable("hotel_id") Long hotel_id, @Valid @ModelAttribute("stanza") Stanza stanza, BindingResult bindingResult, Model model) {
 		this.stanzaValidator.validate(stanza, bindingResult);
@@ -52,7 +52,7 @@ public class StanzaController {
 		return "admin/stanzaForm.html";
 	}
 
-	//visualizza tutti i stanze nel sistema
+	//visualizza tutte le stanze nel sistema
 	@GetMapping("/admin/stanze")
 	public String getStanze(Model model) {
 		List<Stanza> stanze = stanzaService.findAll();
@@ -60,7 +60,7 @@ public class StanzaController {
 		return "admin/stanze.html";
 	}
 
-	//visualizza un stanza dal sistema
+	//visualizza una stanza dal sistema
 	@GetMapping("/admin/stanza/{stanza_id}")
 	public String getStanza(@PathVariable("stanza_id") Long stanza_id, Model model) {
 		Stanza stanza = stanzaService.findById(stanza_id);
@@ -68,7 +68,7 @@ public class StanzaController {
 		return "admin/stanza.html";
 	}
 
-	//visualizza il form per l'inserimento di un stanza nel hotel
+	//visualizza il form per l'inserimento di una stanza nell'hotel
 	@GetMapping("/admin/hotel/{hotel_id}/stanzaForm")
 	public String getStanzaForm(@PathVariable("hotel_id") Long hotel_id, Model model) {
 		model.addAttribute("stanza", new Stanza());
@@ -76,7 +76,7 @@ public class StanzaController {
 		return "admin/stanzaForm.html";
 	}
 
-	//visualizza la pagina di conferma rimozione di un stanza dal hotel
+	//visualizza la pagina di conferma rimozione di una stanza dall'hotel
 	@GetMapping("/admin/hotel/{hotel_id}/toDeleteStanza/{stanza_id}")
 	public String toDeleteStanza(@PathVariable("hotel_id") Long hotel_id, @PathVariable("stanza_id") Long stanza_id, Model model) {
 		model.addAttribute("stanza", stanzaService.findById(stanza_id));
@@ -84,7 +84,7 @@ public class StanzaController {
 		return "admin/confermaRimozioneStanza.html";
 	}
 
-	//elimina il stanza dal hotel e dal sistema, ritorna alla pagina del hotel
+	//elimina una stanza dall'hotel e dal sistema, ritorna alla pagina dell'hotel
 	@GetMapping("/admin/hotel/{hotel_id}/deleteStanza/{stanza_id}")
 	public String deleteStanza(@PathVariable("hotel_id") Long hotel_id, @PathVariable("stanza_id") Long stanza_id, Model model) {
 		Hotel hotel = hotelService.findById(hotel_id);
@@ -96,7 +96,7 @@ public class StanzaController {
 
 	//USER
 	
-	//visualizza un stanza dal sistema
+	//visualizza una stanza dal sistema
 	@GetMapping("/stanza/{stanza_id}")
 	public String getStanzaUser(@PathVariable("stanza_id") Long stanza_id, Model model) {
 		Stanza stanza = stanzaService.findById(stanza_id);

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/base.html :: headerfiles(title='Inserisci Piatto')"></head>
+<head th:replace="fragments/base.html :: headerfiles(title='Inserisci Stanza')"></head>
 
 <body>
     
 	<header th:replace="fragments/base.html :: intestazione"></header>
 
-    <h1>Inserisci Piatto</h1>
-    <form th:action="@{'/admin/buffet' + '/' + ${buffet.id} + '/piatto'}" method="post" th:object = "${piatto}">
+    <h1>Inserisci Stanza</h1>
+    <form th:action="@{'/admin/hotel' + '/' + ${hotel.id} + '/stanza'}" method="post" th:object = "${stanza}">
 		<div class="errore" th:if="${#fields.hasGlobalErrors()}">
 			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errori generici</p>
 		</div>
@@ -16,6 +16,16 @@
 			<div><b>Nome</b></div> 
             <input type="text" th:field="*{nome}"/>
 			<span class="errore" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">errore nome</span>
+		</div>	
+		<div class="campoForm">
+			<div><b>Numero</b></div> 
+            <input type="text" th:field="*{numero}"/>
+			<span class="errore" th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}">errore numero</span>
+		</div>	
+		<div class="campoForm">
+			<div><b>Prezzo per notte</b></div> 
+            <input type="text" th:field="*{prezzoNotte}"/>
+			<span class="errore" th:if="${#fields.hasErrors('prezzoNotte')}" th:errors="*{prezzoNotte}">errore prezzo</span>
 		</div>	
 		<div class="campoForm">
 			<div><b>Descrizione</b></div> 

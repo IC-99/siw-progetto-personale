@@ -36,7 +36,7 @@ public class ServizioController {
 
 	//ADMIN
 	
-	//aggiunge un servizio a un stanza
+	//aggiunge un servizio a una stanza
 	@PostMapping("/admin/stanza/{stanza_id}/servizio")
 	public String addServizio(@PathVariable("stanza_id") Long stanza_id, @Valid @ModelAttribute("servizio") Servizio servizio, BindingResult bindingResult, Model model) {
 		this.servizioValidator.validate(servizio, bindingResult);
@@ -52,7 +52,7 @@ public class ServizioController {
 		return "admin/servizioForm.html";
 	}
 
-	//visualizza tutti gli servizi nel sistema
+	//visualizza tutti i servizi nel sistema
 	@GetMapping("/admin/servizi")
 	public String getServizi(Model model) {
 		List<Servizio> servizi = servizioService.findAll();
@@ -68,7 +68,7 @@ public class ServizioController {
 		return "admin/servizio.html";
 	}
 
-	//visualizza il form per l'inserimento di un servizio nel stanza
+	//visualizza il form per l'inserimento di un servizio nella stanza
 	@GetMapping("/admin/stanza/{stanza_id}/servizioForm")
 	public String getServizioForm(@PathVariable("stanza_id") Long stanza_id, Model model) {
 		model.addAttribute("servizio", new Servizio());
@@ -76,7 +76,7 @@ public class ServizioController {
 		return "admin/servizioForm.html";
 	}
 
-	//visualizza la pagina di conferma rimozione di un servizio dal stanza
+	//visualizza la pagina di conferma rimozione di un servizio dalla stanza
 	@GetMapping("/admin/stanza/{stanza_id}/toDeleteServizio/{servizio_id}")
 	public String toDeleteServizio(@PathVariable("stanza_id") Long stanza_id, @PathVariable("servizio_id") Long servizio_id, Model model) {
 		model.addAttribute("servizio", servizioService.findById(servizio_id));
@@ -84,7 +84,7 @@ public class ServizioController {
 		return "admin/confermaRimozioneServizio.html";
 	}
 
-	//elimina l'servizio dal stanza e dal sistema, ritorna alla pagina del stanza
+	//elimina il servizio dalla stanza e dal sistema, ritorna alla pagina della stanza
 	@GetMapping("/admin/stanza/{stanza_id}/deleteServizio/{servizio_id}")
 	public String deleteServizio(@PathVariable("stanza_id") Long stanza_id, @PathVariable("servizio_id") Long servizio_id, Model model) {
 		Stanza stanza = stanzaService.findById(stanza_id);

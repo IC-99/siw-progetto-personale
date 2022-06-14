@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/base.html :: headerfiles(title='Elenco Chef')"></head>
+<head th:replace="fragments/base.html :: headerfiles(title='Elenco Citt&agrave;')"></head>
 
 <body>
 
 	<header th:replace="fragments/base.html :: intestazione"></header>
 
 	<div>
-		<h1>I nostri chef</h1>
+		<h1>Le citt&agrave;</h1>
 		<div class="flexlist">
-			<div th:each="chef : ${chefs}">
+			<div th:each="citta : ${cittas}">
                 <div style="margin: 0px">
-				    <h2 class="flextitle" th:text="${chef.nome} + ' ' + ${chef.cognome}">nome cognome</h2>
-                </div>
-                <div style="margin: 0px">
-                    <span style="font-weight:bold; color:black">Nazionalit&agrave;: </span>
-				    <span th:text="${chef.nazionalita}">nazionalit&agrave;</span>
+				    <h2 class="flextitle" th:text="${citta.nome} + ', ' + ${citta.regione}">nome regione</h2>
                 </div>
                 <div>
                     <span class="box">
-				        <a href="chef.html" th:href="@{'/admin/chef' + '/' + ${chef.id}}" style="text-decoration:none">
+				        <a href="citta.html" th:href="@{'/admin/citta' + '/' + ${citta.id}}" style="text-decoration:none">
                             <button class="btn btn-flex" type="button">Dettagli</button>
                         </a>
                     </span>
                     <span class="box">
-				        <a href="chef.html" th:href="@{'/admin/toDeleteChef' + '/' + ${chef.id}}" style="text-decoration:none">
+				        <a href="citta.html" th:href="@{'/admin/toDeleteCitta' + '/' + ${citta.id}}" style="text-decoration:none">
                             <button class="btn btn-flex" type="button">Cancella</button>
                         </a>
                     </span>

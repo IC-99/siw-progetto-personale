@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/base.html :: headerfiles(title='Inserisci Chef')"></head>
+<head th:replace="fragments/base.html :: headerfiles(title='Inserisci Citt&agrave;')"></head>
 
 <body>
 
 	<header th:replace="fragments/base.html :: intestazione"></header>
 
-    <h1>Inserisci Chef</h1>
+    <h1>Inserisci Citt&agrave;</h1>
     
-    <div th:if="${!fromBuffet}">
-    	<form th:action="@{/admin/chef}" method="post" th:object = "${chef}">
+    <div th:if="${!fromHotel}">
+    	<form th:action="@{/admin/citta}" method="post" th:object = "${citta}">
 			<div class="errore" th:if="${#fields.hasGlobalErrors()}">
 				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errori generici</p>
 			</div>
@@ -20,14 +20,9 @@
 				<span class="errore" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">errore nome</span>
 			</div>	
 			<div class="campoForm">
-				<div><b>Cognome</b></div> 
-            	<input type="text" th:field="*{cognome}"/>
-				<span class="errore" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}">errore cognome</span>
-			</div>
-			<div class="campoForm">
-				<div><b>Nazionalit&agrave;</b></div> 
-        	    <input type="text" th:field="*{nazionalita}"/>
-				<span class="errore" th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}">errore nazionalit&agrave;</span>
+				<div><b>Regione</b></div> 
+            	<input type="text" th:field="*{regione}"/>
+				<span class="errore" th:if="${#fields.hasErrors('regione')}" th:errors="*{regione}">errore regione</span>
 			</div>
 			<div class="box">
             	<button class="btn btn-home" type="submit">Conferma</button>
@@ -35,8 +30,8 @@
 		</form>
 	</div>
     
-    <div th:if="${fromBuffet}">
-    <form th:action="@{'/admin/buffet' + '/' + ${buffet.id} + '/chef'}" method="post" th:object = "${chef}">
+    <div th:if="${fromHotel}">
+    <form th:action="@{'/admin/hotel' + '/' + ${hotel.id} + '/citta'}" method="post" th:object = "${citta}">
 			<div class="errore" th:if="${#fields.hasGlobalErrors()}">
 				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errori generici</p>
 			</div>
@@ -47,14 +42,9 @@
 				<span class="errore" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">errore nome</span>
 			</div>	
 			<div class="campoForm">
-				<div><b>Cognome</b></div> 
-            	<input type="text" th:field="*{cognome}"/>
-				<span class="errore" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}">errore cognome</span>
-			</div>
-			<div class="campoForm">
-				<div><b>Nazionalit&agrave;</b></div> 
-        	    <input type="text" th:field="*{nazionalita}"/>
-				<span class="errore" th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}">errore nazionalit&agrave;</span>
+				<div><b>Regione</b></div> 
+            	<input type="text" th:field="*{regione}"/>
+				<span class="errore" th:if="${#fields.hasErrors('regione')}" th:errors="*{regione}">errore regione</span>
 			</div>
 			<div class="box">
             	<button class="btn btn-home" type="submit">Conferma</button>

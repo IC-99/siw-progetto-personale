@@ -5,12 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import it.uniroma3.siw.esame.model.Hotel;
 import it.uniroma3.siw.esame.model.Citta;
+import it.uniroma3.siw.esame.model.Hotel;
 import it.uniroma3.siw.esame.model.Servizio;
 import it.uniroma3.siw.esame.model.Stanza;
-import it.uniroma3.siw.esame.service.HotelService;
 import it.uniroma3.siw.esame.service.CittaService;
+import it.uniroma3.siw.esame.service.HotelService;
 
 @Controller
 public class FacadeController {
@@ -45,7 +45,6 @@ public class FacadeController {
 		Stanza s4 = new Stanza();
 		Stanza s5 = new Stanza();
 		Stanza s6 = new Stanza();
-		Stanza s7 = new Stanza();
 
 		s1.setNome("Doppia");
 		s1.setDescrizione("Stanza doppia vista Colosseo");
@@ -83,7 +82,6 @@ public class FacadeController {
 		Servizio sv8 = new Servizio();
 		Servizio sv9 = new Servizio();
 		Servizio sv10 = new Servizio();
-		Servizio sv11 = new Servizio();
 
 		sv1.setNome("Aria Condizionata");
 		sv1.setDescrizione("Condizionatore in camera");
@@ -121,9 +119,8 @@ public class FacadeController {
 		h1.addStanza(s2);
 		h2.addStanza(s3);
 		h2.addStanza(s4);
-		h2.addStanza(s5);
+		h3.addStanza(s5);
 		h3.addStanza(s6);
-		h3.addStanza(s7);
 		
 		Citta c1 = new Citta();
 		c1.setNome("Roma");
