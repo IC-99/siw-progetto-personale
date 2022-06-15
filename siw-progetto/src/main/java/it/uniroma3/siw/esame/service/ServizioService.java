@@ -32,11 +32,11 @@ public class ServizioService {
 	}
 	
 	public List<Servizio> findAll(){
-		List<Servizio> ingredienti = new ArrayList<Servizio>();
-		for(Servizio i : servizioRepository.findAll()) {
-			ingredienti.add(i);
+		List<Servizio> servizi = new ArrayList<Servizio>();
+		for(Servizio s : servizioRepository.findAll()) {
+			servizi.add(s);
 		}
-		return ingredienti;
+		return servizi;
 	}
 	
 	public boolean alreadyExists(Servizio servizio) {

@@ -65,6 +65,11 @@
             <button class="btn btn-home" type="button">Aggiungi Stanza</button>
         </a>
     </div>
+    <div class="box">
+        <a th:href="@{'/admin/hotel' + '/' + ${hotel.id} + '/updateHotelForm'}">
+            <button class="btn btn-home" type="button">Modifica Hotel</button>
+        </a>
+    </div>
     
 	<footer th:replace="fragments/base.html :: fondo(home='/home')"></footer>
 	

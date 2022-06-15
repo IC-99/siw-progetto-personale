@@ -32,11 +32,11 @@ public class StanzaService {
 	}
 	
 	public List<Stanza> findAll(){
-		List<Stanza> piatti = new ArrayList<Stanza>();
-		for(Stanza p : stanzaRepository.findAll()) {
-			piatti.add(p);
+		List<Stanza> stanze = new ArrayList<Stanza>();
+		for(Stanza s : stanzaRepository.findAll()) {
+			stanze.add(s);
 		}
-		return piatti;
+		return stanze;
 	}
 	
 	public boolean alreadyExists(Stanza stanza) {

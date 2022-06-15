@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/base.html :: headerfiles(title='Dettagli Chef')">
+<head th:replace="fragments/base.html :: headerfiles(title='Dettagli Citt&agrave;')">
 </head>
 
 <body>
@@ -8,23 +8,19 @@
 	<header th:replace="fragments/base.html :: intestazione"></header>
 
 	<div>
-		<h1 th:text="${chef.nome} + ' ' + ${chef.cognome}">Nome Cognome</h1>
-        <div>
-			<span style="font-weight:bold; color:black">Nazionalit&agrave;: </span>
-			<span th:text="${chef.nazionalita}">nazionalit&agrave;</span>
-		</div>
-        <h2>Buffet proposti dallo chef: </h2>
+		<h1 th:text="${citta.nome} + ', ' + ${citta.regione}">Nome Regione</h1>
+        <h2>Hotel in citt&agrave;: </h2>
 		<div class="flexlist">
-			<div th:each="buffet : ${chef.buffets}">
+			<div th:each="hotel : ${citta.hotels}">
                 <div style="margin: 0px">
-				    <h2 class="flextitle" th:text="${buffet.nome}">nome</h2>
+				    <h2 class="flextitle" th:text="${hotel.nome}">nome</h2>
                 </div>
                 <div style="margin: 0px">
-				    <p th:text="${buffet.descrizione}">descrizione</p>
+				    <p th:text="${hotel.descrizione}">descrizione</p>
                 </div>
                 <div>
                     <span class="box">
-				        <a href="buffet.html" th:href="@{'/buffet' + '/' + ${buffet.id}}" style="text-decoration:none">
+				        <a href="hotel.html" th:href="@{'/hotel' + '/' + ${hotel.id}}" style="text-decoration:none">
                             <button class="btn btn-flex" type="button">Dettagli</button>
                         </a>
                     </span>

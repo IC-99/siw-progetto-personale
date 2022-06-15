@@ -55,7 +55,7 @@ public class CittaController {
 			Hotel hotel = hotelService.findById(hotel_id);
 			
 			if(cittaService.alreadyExists(citta)) {
-				Citta cittaNelSistema = cittaService.findByNomeCognomeCitta(citta);
+				Citta cittaNelSistema = cittaService.findByNomeRegione(citta);
 				hotel.setCitta(cittaNelSistema);
 				cittaService.save(cittaNelSistema);
 			}

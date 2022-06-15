@@ -1,5 +1,6 @@
 package it.uniroma3.siw.esame.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -59,6 +60,9 @@ public class Citta {
 	}
 	
 	public void addHotel(Hotel hotel) {
+		if(this.hotels == null) {
+			this.hotels = new ArrayList<Hotel>();
+		}
 		this.hotels.add(hotel);
 	}
 }

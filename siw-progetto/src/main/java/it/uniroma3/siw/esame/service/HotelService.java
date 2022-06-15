@@ -33,8 +33,8 @@ public class HotelService {
 	
 	public List<Hotel> findAll(){
 		List<Hotel> hotels = new ArrayList<Hotel>();
-		for(Hotel b : hotelRepository.findAll()) {
-			hotels.add(b);
+		for(Hotel h : hotelRepository.findAll()) {
+			hotels.add(h);
 		}
 		return hotels;
 	}

@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/base.html :: headerfiles(title='Dettagli Ingrediente')"></head>
+<head th:replace="fragments/base.html :: headerfiles(title='Dettagli Servizio')"></head>
 
 <body>
 
 	<header th:replace="fragments/base.html :: intestazione"></header>
 
 	<div>
-		<h4>Dettagli ingrediente</h4>
+		<h4>Dettagli servizio</h4>
 		<div>
 			<span style="font-weight:bold; color:black">Nome: </span>
-			<span th:text="${ingrediente.nome}">nome</span>
+			<span th:text="${servizio.nome}">nome</span>
 		</div>
         <div>
 			<span style="font-weight:bold; color:black">Descrizione: </span>
-			<span th:text="${ingrediente.descrizione}">descrizione</span>
-		</div>
-        <div>
-            <span style="font-weight:bold; color:black">Origine: </span>
-			<span th:text="${ingrediente.origine}">origine</span>
+			<span th:text="${servizio.descrizione}">descrizione</span>
 		</div>
 	</div>
 
