@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Home')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione_home"></header>
+
+	<div>
+
+		<div class="box">
+			<a th:href="@{chefs}">
+				<button class="btn btn-home" type="button">I nostri chef</button>
+			</a>
+		</div>
+
+		<div class="box">
+			<a th:href="@{buffets}">
+				<button class="btn btn-home" type="button">I nostri buffet</button>
+			</a>
+		</div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Conferma Rimozione Hotel')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+	<div>
+		<h2>Conferma Rimozione Hotel:</h2>
+		<div>
+			<span th:text="${hotel.nome}">nome</span>
+			<span th:text="${hotel.descrizione}">descrizione</span>
+		</div>
+		<div class="box">
+			<a href="hotel.html" th:href="@{'/admin/deleteHotel' + '/' + ${hotel.id}}">
+				<button class="btn btn-home" type="button">Conferma</button>
+			</a>
+		</div>
+	</div>
+
+	<footer th:replace="fragments/base.html :: fondo(home='/home')"></footer>
+	
+</body>
+</html>

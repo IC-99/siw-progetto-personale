@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Registra Utente')"> </head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+   	<h1>Registrazione</h1>
+	<form th:action="@{/register}" method="POST" >
+	
+		<div class="campoForm">
+			<div><b>Nome</b></div> 
+			<input type="text" placeholder="nome" th:field="${user.nome}"/>
+			<span class="errore" th:if="${#fields.hasErrors('user.nome')}" th:errors="*{user.nome}">errore nome</span>
+		</div>
+		
+		<div class="campoForm">
+			<div><b>Cognome</b></div> 
+			<input type="text" placeholder="cognome" th:field="${user.cognome}"/>
+			<span class="errore" th:if="${#fields.hasErrors('user.cognome')}" th:errors="*{user.cognome}">errore nome</span>
+		</div>
+	
+		<div class="campoForm">
+			<div><b>Username</b></div> 
+			<input type="text" placeholder="username" th:field="${credentials.username}"/>
+			<span class="errore" th:if="${#fields.hasErrors('credentials.username')}" th:errors="*{credentials.username}">errore nome</span>
+		</div>
+		
+		<div class="campoForm">
+			<div><b>Password</b></div> 
+			<input type="password" placeholder="password" th:field="${credentials.password}"/>
+			<span class="errore" th:if="${#fields.hasErrors('credentials.password')}" th:errors="*{credentials.password}">errore nome</span>
+		</div>
+		
+	
+	
+	
+    <div class="box">
+       	<button class="btn btn-home" type="submit">Registra</button>
+   	</div>
+   	
+	</form>
+	
+	<footer th:replace="fragments/base.html :: fondo(home='/')"></footer>
+	
+</body>
+</html>

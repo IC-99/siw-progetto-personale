@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Buffet dal Mondo')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+    <div>
+    	<h2 style="text-align: center;">Accedi o registrati</h2>
+    	
+    	<div class="box">
+			<a th:href="@{/login}">
+				<button class="btn btn-home" type="button">Accedi</button>
+			</a>
+		</div>
+    	
+      	<div class="box">
+			<a th:href="@{/register}">
+				<button class="btn btn-home" type="button">Registrati</button>
+			</a>
+		</div>
+    </div>
+</body>
+</html>
