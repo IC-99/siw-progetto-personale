@@ -68,7 +68,7 @@ public class FacadeController {
 		s5.setPrezzoNotte(70f);
 		s6.setNome("Tripla");
 		s6.setDescrizione("Stanza con tre letti singoli");
-		s6.setNumero(12);
+		s6.setNumero(15);
 		s6.setPrezzoNotte(150f);
 		
 
@@ -121,6 +121,8 @@ public class FacadeController {
 		h2.addStanza(s4);
 		h3.addStanza(s5);
 		h3.addStanza(s6);
+		
+		System.out.println(h1.getStanze());
 		
 		Citta c1 = new Citta();
 		c1.setNome("Roma");

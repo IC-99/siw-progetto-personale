@@ -43,7 +43,7 @@ public class CittaService {
 		return this.cittaRepository.existsByNomeAndRegione(citta.getNome(), citta.getRegione());
 	}
 	
-	public Citta findByNomeCognomeCitta(Citta citta) {
+	public Citta findByNomeRegione(Citta citta) {
 		return this.cittaRepository.findByNomeAndRegione(citta.getNome(), citta.getRegione());
 	}
 	

@@ -1,7 +1,8 @@
 package it.uniroma3.siw.esame.model;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -31,7 +32,7 @@ public class Hotel {
 	private Integer stelle;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
-    private List<Stanza> stanze;
+    private Set<Stanza> stanze;
 	
 	@ManyToOne
     private Citta citta;
@@ -50,6 +51,7 @@ public class Hotel {
 
 	public void setCitta(Citta citta) {
 		this.citta = citta;
+		citta.addHotel(this);
 	}
 	
 	public Long getId() {
@@ -76,17 +78,17 @@ public class Hotel {
 		this.descrizione = descrizione;
 	}
 
-	public List<Stanza> getStanze() {
+	public Set<Stanza> getStanze() {
 		return stanze;
 	}
 
-	public void setStanze(List<Stanza> stanze) {
+	public void setStanze(Set<Stanza> stanze) {
 		this.stanze = stanze;
 	}
 
 	public void addStanza(Stanza stanza) {
 		if(this.stanze == null) {
-			this.stanze = new ArrayList<Stanza>();
+			this.stanze = new HashSet<Stanza>();
 		}
 		this.stanze.add(stanza);
 	}

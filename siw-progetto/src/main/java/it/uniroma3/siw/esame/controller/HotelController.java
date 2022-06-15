@@ -46,6 +46,23 @@ public class HotelController {
 		model.addAttribute("fromCitta", false);
 		return "admin/hotelForm.html";
 	}
+	
+	//aggiorna un hotel
+	@PostMapping("/admin/hotel/{id}/update")
+	public String updateHotel(@PathVariable("id") Long id, @Valid @ModelAttribute("hotel") Hotel hotel, BindingResult bindingResult, Model model) {
+		Hotel oldHotel = hotelService.findById(id);
+		this.hotelValidator.validate(hotel, bindingResult);
+		
+		if(!bindingResult.hasErrors()) {
+			oldHotel.setNome(hotel.getNome());
+			oldHotel.setDescrizione(hotel.getDescrizione());
+			hotelService.save(oldHotel);
+			model.addAttribute("hotel", oldHotel);
+			return "admin/hotel.html";
+		}
+		model.addAttribute("fromChef", false);
+		return "admin/updateHotelForm.html";
+	}
 
 	//aggiunge un hotel nella citta
 	@PostMapping("/admin/citta/{citta_id}/hotel")
@@ -88,6 +105,15 @@ public class HotelController {
 		model.addAttribute("fromCitta", false);
 		return "admin/hotelForm.html";
 	}
+	
+	//visualizza il form per la modifica di un hotel
+	@GetMapping("/admin/hotel/{id}/updateHotelForm")
+	public String updateHotel(@PathVariable("id") Long id, Model model) {
+		Hotel hotel = hotelService.findById(id);
+		model.addAttribute("hotel", hotel);
+		model.addAttribute("fromCitta", false);
+		return "admin/updateHotelForm.html";
+	}	
 
 	//visualizza il form per l'inserimento di un hotel nella citta
 	@GetMapping("/admin/citta/{citta_id}/hotelForm")
