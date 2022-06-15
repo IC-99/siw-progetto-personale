@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/base.html :: headerfiles(title='Elenco Buffet')"></head>
+<head th:replace="fragments/base.html :: headerfiles(title='Elenco Hotel')"></head>
 
 <body>
 
 	<header th:replace="fragments/base.html :: intestazione"></header>
 
 	<div>
-		<h1>I nostri buffet</h1>
+		<h1>I nostri hotel</h1>
 		<div class="flexlist">
-			<div th:each="buffet : ${buffets}">
+			<div th:each="hotel : ${hotels}">
                 <div style="margin: 0px">
-				    <h2 class="flextitle" th:text="${buffet.nome}">nome</h2>
+				    <h2 class="flextitle" th:text="${hotel.nome}">nome</h2>
                 </div>
                 <div style="margin: 0px">
-				    <p th:text="${buffet.descrizione}">descrizione</p>
+				    <p th:text="${hotel.descrizione}">descrizione</p>
                 </div>
                 <div>
                     <span class="box">
-				        <a href="buffet.html" th:href="@{'/buffet' + '/' + ${buffet.id}}" style="text-decoration:none">
+				        <a href="hotel.html" th:href="@{'/hotel' + '/' + ${hotel.id}}" style="text-decoration:none">
                             <button class="btn btn-flex" type="button">Dettagli</button>
                         </a>
                     </span>

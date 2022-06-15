@@ -23,6 +23,8 @@ public class MainController {
 
 		if(!haAdmin) {
 			this.creaAdmin("Ivan", "Carlini", "ivan_admin", "admin");
+			this.creaAdmin("Stefano", "Bordeianu", "stefano_admin", "admin");
+			haAdmin = true;
 		}
 
 		return "index";
@@ -41,7 +43,6 @@ public class MainController {
 		adminCredentials.setUser(admin);
 
 		credentialsService.saveCredentials(adminCredentials);
-		haAdmin = true;
 	}
 
 }
