@@ -6,7 +6,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.esame.model.Hotel;
-import it.uniroma3.siw.esame.model.User;
 import it.uniroma3.siw.esame.service.HotelService;
 
 
@@ -24,6 +23,12 @@ public class HotelValidator implements Validator{
 		
 		if(this.hotelService.alreadyExists(hotel)) {
 			errors.reject("hotel.duplicato");
+			
+			if(hotel.getId() != null) {
+				if(hotelService.findById(hotel.getId()) != null) {
+					errors.reject("hotel.notUpdate");
+				}
+			}
 		}
 		
         Integer stelle = hotel.getStelle();

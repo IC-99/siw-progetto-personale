@@ -40,6 +40,6 @@ public class HotelService {
 	}
 	
 	public boolean alreadyExists(Hotel hotel) {
-		return this.hotelRepository.existsByNomeAndDescrizione(hotel.getNome(), hotel.getDescrizione());
+		return this.hotelRepository.existsByNomeAndDescrizioneAndStelle(hotel.getNome(), hotel.getDescrizione(), hotel.getStelle());
 	}
 }

@@ -51,16 +51,17 @@ public class HotelController {
 	@PostMapping("/admin/hotel/{id}/update")
 	public String updateHotel(@PathVariable("id") Long id, @Valid @ModelAttribute("hotel") Hotel hotel, BindingResult bindingResult, Model model) {
 		Hotel oldHotel = hotelService.findById(id);
-		this.hotelValidator.validate(hotel, bindingResult);
+		oldHotel.setNome(hotel.getNome());
+		oldHotel.setDescrizione(hotel.getDescrizione());
+		oldHotel.setStelle(hotel.getStelle());
+		this.hotelValidator.validate(oldHotel, bindingResult);
 		
 		if(!bindingResult.hasErrors()) {
-			oldHotel.setNome(hotel.getNome());
-			oldHotel.setDescrizione(hotel.getDescrizione());
 			hotelService.save(oldHotel);
 			model.addAttribute("hotel", oldHotel);
 			return "admin/hotel.html";
 		}
-		model.addAttribute("fromChef", false);
+		model.addAttribute("fromCitta", false);
 		return "admin/updateHotelForm.html";
 	}
 
