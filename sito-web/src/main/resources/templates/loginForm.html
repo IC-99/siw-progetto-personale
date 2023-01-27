@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Login')"> </head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+	<h1>Login</h1>
+	
+	<form th:action="@{/login}" method="POST">
+		<div class="errore" th:if="${errore}">
+			<p>username o password errati</p>
+		</div>
+		
+		<div>
+			<div>
+				<span>Username:</span>
+				<span><input name="username" required type="text"/></span>
+			</div>		
+			<div>
+				<span>Password:</span>
+				<span><input name="password" required type="password"/></span>
+			</div>
+			<div class="box">
+   	         	<button class="btn btn-home" type="submit">Conferma</button>
+   	     	</div>
+		</div>
+	</form>
+	
+	<footer th:replace="fragments/base.html :: fondo(home='/')"></footer>
+
+</body>
+</html>

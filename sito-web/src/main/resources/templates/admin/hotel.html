@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Dettagli Hotel')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+	<div>
+		<h1 th:text="${hotel.nome}">Nome</h1>
+        <div>
+			<span style="font-weight:bold; color:black">Citt&agrave;: </span>
+			<span th:if="${hotel.citta != null}">
+				<span th:text="${hotel.citta.nome}">nome</span>,
+				<span th:text="${hotel.citta.regione}">regione</span>
+			</span>
+			<span th:if="${hotel.citta == null}">
+				<span class="errore">da impostare</span>
+			</span>
+		</div>
+        <div>
+            <div class="box">
+			<a th:href="@{'/admin/hotel' + '/' + ${hotel.id} + '/cittaForm'}">
+       			<button class="btn btn-home" type="button">
+       				<span th:if="${hotel.citta == null}">Imposta Citt&agrave;</span>
+       				<span th:if="${hotel.citta != null}">Modifica Citt&agrave;</span>
+       			</button>
+   			</a>
+   			</div>
+   		</div>
+   		<div>
+			<span style="font-weight:bold; color:black">Stelle: </span>
+			<span th:text="${hotel.stelle}">stelle</span>
+		</div>
+   		<div>
+			<span style="font-weight:bold; color:black">Descrizione: </span>
+			<span th:text="${hotel.descrizione}">descrizione</span>
+		</div>
+        <h2>Stanze disponibili: </h2>
+		<div class="flexlist">
+			<div th:each="stanza : ${hotel.stanze}">
+                <div style="margin: 0px">
+				    <h2 class="flextitle" th:text="${stanza.nome}">nome</h2>
+                </div>
+                <div style="margin: 0px">
+				    <p th:text="${stanza.descrizione}">descrizione</p>
+                </div>
+                <div>
+                    <span class="box">
+				        <a href="stanza.html" th:href="@{'/admin/stanza' + '/' + ${stanza.id}}" style="text-decoration:none">
+                            <button class="btn btn-flex" type="button">Dettagli</button>
+                        </a>
+                    </span>
+                    <span class="box">
+				        <a href="stanza.html" th:href="@{'/admin/hotel' + '/' + ${hotel.id} + '/toDeleteStanza' + '/' + ${stanza.id}}" style="text-decoration:none">
+                            <button class="btn btn-flex" type="button">Cancella</button>
+                        </a>
+                    </span>
+                </div>
+			</div>  
+		</div>
+	</div>
+	<div class="box">
+        <a th:href="@{'/admin/hotel' + '/' + ${hotel.id} + '/stanzaForm'}">
+            <button class="btn btn-home" type="button">Aggiungi Stanza</button>
+        </a>
+    </div>
+    <div class="box">
+        <a th:href="@{'/admin/hotel' + '/' + ${hotel.id} + '/updateHotelForm'}">
+            <button class="btn btn-home" type="button">Modifica Hotel</button>
+        </a>
+    </div>
+    
+	<footer th:replace="fragments/base.html :: fondo(home='/home')"></footer>
+	
+</body>
+</html>

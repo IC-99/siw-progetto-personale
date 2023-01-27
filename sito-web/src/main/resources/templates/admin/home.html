@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Pannello Di Controllo')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione_home"></header>
+
+	<div id="home_admin">
+
+        <div>
+            <h2 style="text-align: center;">Operazioni sulle citt&agrave;</h2>
+			<div class="box">
+                <a th:href="@{/admin/cittaForm}">
+                    <button class="btn btn-home" type="button">Inserisci Citt&agrave;</button>
+                </a>    
+            </div>
+            <div class="box">
+                <a th:href="@{/admin/cittas}">
+                    <button class="btn btn-home" type="button">Visualizza Citt&agrave;</button>
+                </a>
+            </div>
+        </div>
+        <div>
+            <h2 style="text-align: center;">Operazioni sugli hotel</h2>
+			<div class="box">
+				<a th:href="@{/admin/hotelForm}">
+					<button class="btn btn-home" type="button">Inserisci Hotel</button>
+				</a>
+			</div>
+            <div class="box">
+                <a th:href="@{/admin/hotels}">
+                    <button class="btn btn-home" type="button">Visualizza Hotel</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="box">
+        <a th:href="@{/admin/creaOggettiTest}">
+            <button class="btn btn-home" type="button">Crea oggetti di test</button>
+		</a>
+	</div>
+    
+</body>
+</html>

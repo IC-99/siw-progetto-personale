@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Elenco Stanze')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+	<div>
+		<h4>Elenco stanze:</h4>
+		<ul>
+			<li th:each="stanza : ${stanze}">
+				<span th:text="${stanza.nome}">nome</span>
+				<a href="stanza.html" th:href="@{'/admin/stanza' + '/' + ${stanza.id}}" th:text="dettagli">dettagli</a>
+				<a href="stanza.html" th:href="@{'/admin/toDeleteStanza' + '/' + ${stanza.id}}" th:text="cancella">cancella</a>
+			</li>
+		</ul>
+	</div>
+	
+	<footer th:replace="fragments/base.html :: fondo(home='/home')"></footer>
+</body>
+</html>

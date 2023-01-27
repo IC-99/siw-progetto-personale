@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Conferma Rimozione Stanza')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+	<div>
+		<h2>Conferma Rimozione Stanza:</h2>
+		<div>
+			<span th:text="${stanza.nome}">nome</span>
+			<span th:text="${stanza.descrizione}">descrizione</span>
+		</div>
+		<div class="box">
+			<a href="stanza.html" th:href="@{'/admin/hotel' + '/' + ${hotel.id} + '/deleteStanza' + '/' + ${stanza.id}}">
+				<button class="btn btn-home" type="button">Conferma</button>
+			</a>
+		</div>
+	</div>
+
+	<footer th:replace="fragments/base.html :: fondo(home='/home')"></footer>
+	
+</body>
+</html>

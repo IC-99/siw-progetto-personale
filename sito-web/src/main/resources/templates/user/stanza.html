@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Dettagli Piatto')"></head>
+
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+	<div>
+		<h1 th:text="${stanza.nome}">Nome</h1>
+        <div>
+			<span style="font-weight:bold; color:black">Descrizione: </span>
+			<span th:text="${stanza.descrizione}">descrizione</span>
+		</div>
+		<div>
+			<span style="font-weight:bold; color:black">Numero: </span>
+			<span th:text="${stanza.numero}">numero</span>
+		</div>
+		<div>
+			<span style="font-weight:bold; color:black">Prezzo per notte: </span>
+			<span th:text="${stanza.prezzoNotte}">prezzo</span> &euro;
+		</div>		
+        <h2>Servizi: </h2>
+		<div class="flexlist">
+			<div th:each="servizio : ${stanza.servizi}">
+                <div style="margin: 0px">
+				    <h2 class="flextitle" th:text="${servizio.nome}">nome</h2>
+                </div>
+                <div style="margin: 0px">
+				    <p th:text="${servizio.descrizione}">descrizione</p>
+                </div>
+                <div>
+                    <span class="box">
+				        <a href="servizio.html" th:href="@{'/servizio' + '/' + ${servizio.id}}" style="text-decoration:none">
+                            <button class="btn btn-flex" type="button">Dettagli</button>
+                        </a>
+                    </span>
+                </div>
+			</div>  
+		</div>
+	</div>
+    
+  	<footer th:replace="fragments/base.html :: fondo(home='/home')"></footer>
+</body>
+</html>
